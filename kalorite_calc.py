@@ -40,10 +40,10 @@ def mak_jaotus(kalorid):
     süsivesikud = kalorid * 0.5 // 4
     
 
+#minu testimine
 bmr = harris_benedict_valem("mees", 90, 170, 19)
 print("Teie energiavajadus päevas on...")
 print(round((pal_valem(bmr, "Istuv"))))
-print(mak_jaotus(kalorid))
 print("kalorit.")
 
 
