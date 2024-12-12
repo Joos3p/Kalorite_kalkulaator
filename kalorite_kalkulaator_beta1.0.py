@@ -98,7 +98,7 @@ def arvuta():
         
 #Trollz
         if kaal > 1000:
-            messagebox.showinfo("Tulemus", "Sa oled liiga paks!")
+            messagebox.showinfo("Tulemus", "Sa pead sisestama enda kaalu, mitte enda ema oma")
             return
         elif kaal > 650:
             messagebox.showinfo("Palju õnne!", "Olete ületanud maailma raskeima inimese rekordi!")
@@ -107,7 +107,12 @@ def arvuta():
             return
         elif pikkus > 272:
             messagebox.showinfo("Palju õnne!", "Olete ületanud maailma pikima inimese rekordi!")
-
+        if vanus > 150:
+            messagebox.showinfo("Tulemus", "Oled sa elus? Mis on su vanuse saladus?")
+            return
+        if vanus > 122:
+            messagebox.showinfo("Palju õnne!", "Olete ületanud maailma vanima inimese rekordi!")
+            
         bmr = harris_benedict_valem(sugu, kaal, pikkus, vanus)
         if isinstance(bmr, str):  #Kontrollib, kas tagastatud väärtus on sõnum, mitte arv
             raise ValueError(bmr)
