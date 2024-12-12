@@ -95,6 +95,12 @@ def arvuta():
         vanus = int(vanus_entry.get())
         aktiivsus = aktiivsus_var.get()
 
+        if kaal > 1000:
+            messagebox.showinfo("Tulemus", "Sa oled liiga paks!")
+            return
+        elif kaal > 650:
+            messagebox.showinfo("Palju õnne!", "Olete ületanud maailma raskeima inimese rekordi!")
+
         bmr = harris_benedict_valem(sugu, kaal, pikkus, vanus)
         if isinstance(bmr, str):  #Kontrollib, kas tagastatud väärtus on sõnum, mitte arv
             raise ValueError(bmr)
@@ -121,9 +127,10 @@ app = tk.Tk()
 app.title("Kalorite Kalkulaator")
 
 #Sugu
-tk.Label(app, text="Sugu (mees/naine):").pack()
-sugu_var = tk.StringVar(value="mees")
-tk.Entry(app, textvariable=sugu_var).pack()
+tk.Label(app, text="Sugu:").pack()
+sugu_var = tk.StringVar(value="")
+sugu_menu = tk.OptionMenu(app, sugu_var, "mees", "naine")
+sugu_menu.pack()
 
 #Kaal
 tk.Label(app, text="Kaal (kg):").pack()
@@ -141,9 +148,10 @@ vanus_entry = tk.Entry(app)
 vanus_entry.pack()
 
 #Aktiivsus
-tk.Label(app, text="Aktiivsuse tase (Istuv/Väike/Mõõdukas/Kõrge/Väga kõrge):").pack()
-aktiivsus_var = tk.StringVar(value="Istuv")
-tk.Entry(app, textvariable=aktiivsus_var).pack()
+tk.Label(app, text="Aktiivsuse tase:").pack()
+aktiivsus_var = tk.StringVar(value="")
+aktiivsus_menu = tk.OptionMenu(app, aktiivsus_var, "Istuv", "Väike", "Mõõdukas", "Kõrge", "Väga kõrge")  # OptionMenu for activity level
+aktiivsus_menu.pack()
 
 #Arvutuse nupp
 arvuta_btn = tk.Button(app, text="Arvuta", command=arvuta)
