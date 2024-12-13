@@ -97,7 +97,7 @@ def arvuta():
         
 #Trollz
         if kaal < 0 or pikkus < 0 or vanus < 0:
-            messagebox.showinfo("Tulemus", "Kaal, pikkus ega vanus ei saa alla olla alla nulli!")
+            messagebox.showinfo("Tulemus", "Kaal, pikkus ega vanus ei saa olla alla nulli!")
             return
         if kaal > 1000:
             messagebox.showinfo("Tulemus", "Sa pead sisestama enda kaalu, mitte enda ema oma")
